@@ -1,15 +1,28 @@
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class DataFetcher {
 
-    public static String getRawJSONfromAPI() throws Exception {
+    HttpRequestFactory requestFactory;
+    String baseURL = "https://wuhan-coronavirus-api.laeyoung.endpoint.ainize.ai/jhu-edu/brief";
+
+    public static String getRawJSONfromAPI() throws IOException {
         // TODO
-        return null;
+        HttpRequestFactory requestFactory;
+        String baseURL = "https://wuhan-coronavirus-api.laeyoung.endpoint.ainize.ai/jhu-edu/brief";
+        requestFactory = new NetHttpTransport().createRequestFactory();
+        HttpRequest getRequest = requestFactory.buildGetRequest(
+                new GenericUrl(baseURL));
+        String rawResponse = getRequest.execute().parseAsString();
+        return rawResponse;
     }
 
 }
