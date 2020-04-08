@@ -8,7 +8,11 @@ public class UIUtils {
 
     public static PieDataset convertPairsToPieDataset(List<Pair<String, Integer>> pairs) {
         // TODO
-        return null;
+        DefaultPieDataset pieData = new DefaultPieDataset();
+        for(Pair<String,Integer> p : pairs){
+            pieData.setValue(p.getValue0(),p.getValue1());
+        }
+        return pieData;
     }
 
 }
