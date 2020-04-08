@@ -4,11 +4,17 @@ import org.jfree.data.general.PieDataset;
 
 import java.util.List;
 
-public class UIUtils {
+public class UIUtils
+{
+    public static PieDataset convertPairsToPieDataset(List<Pair<String, Integer>> pairs)
+    {
+        DefaultPieDataset result = new DefaultPieDataset();
 
-    public static PieDataset convertPairsToPieDataset(List<Pair<String, Integer>> pairs) {
-        // TODO
-        return null;
+        for (int i = 0; i < pairs.size(); i++)
+        {
+            result.setValue(pairs.get(i).getValue0(), pairs.get(i).getValue1());
+        }
+
+        return result;
     }
-
 }
