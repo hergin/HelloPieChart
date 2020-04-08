@@ -8,8 +8,10 @@ import java.io.IOException;
 public class DataFetcher {
 
     public static String getRawJSONfromAPI() throws Exception {
-        // TODO
-        return null;
+        HttpRequestFactory requestFactory = new NetHttpTransport().createRequestFactory();
+        HttpRequest getRequest = requestFactory.buildGetRequest(
+                new GenericUrl("https://wuhan-coronavirus-api.laeyoung.endpoint.ainize.ai/jhu-edu/brief"));
+        return getRequest.execute().parseAsString();
     }
 
 }
