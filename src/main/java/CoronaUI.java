@@ -55,3 +55,4 @@ public class CoronaUI extends JFrame {
     }
 
 }
+
