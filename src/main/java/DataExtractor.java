@@ -8,9 +8,16 @@ import java.util.List;
 
 public class DataExtractor {
 
+    ArrayList resultingList;
+
     public static List<Pair<String, Integer>> extractDataFromJSON(String rawJson) {
-        // TODO
-        return null;
+        JsonParser jsonParser = new JsonParser();
+        JsonElement rootElement = jsonParser.parse(rawJson);
+        JsonObject rootObject = rootElement.getAsJsonObject();
+        for (int i = 0; i < rootObject.entrySet().size(); i++){
+            return new Pair<String, Integer>("Some String", SomeInt);
+        }
+
     }
 
 }
