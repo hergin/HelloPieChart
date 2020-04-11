@@ -7,8 +7,12 @@ import java.util.List;
 public class UIUtils {
 
     public static PieDataset convertPairsToPieDataset(List<Pair<String, Integer>> pairs) {
-        // TODO
-        return null;
+        DefaultPieDataset result = new DefaultPieDataset();
+        for (int x = 0; x < pairs.size(); x++) {
+            result.setValue(pairs.get(x).getValue0(), pairs.get(x).getValue1());
+        }
+        return result;
     }
-
 }
+
+
